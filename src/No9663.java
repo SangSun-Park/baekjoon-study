@@ -19,7 +19,7 @@ public class No9663 {
     }
 
     private static void findCount(int n, int row){
-        if (row >= n-1){
+        if (row >= n){
             count ++;
             return;
         }
@@ -33,7 +33,7 @@ public class No9663 {
     }
 
     private static boolean check(int row){
-        for (int i = 0; i <= row; i++){
+        for (int i = 0; i < row; i++){
             if(board[i] == board[row] || row - i == Math.abs(board[row] - board[i]))
                 return false;
         }
