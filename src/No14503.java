@@ -39,36 +39,67 @@ public class No14503 {
 
     static boolean check(){
         for (int i = 0; i < 4; i++){
-            if(turn())
+            if(turn()) {
+                d = (d + i) % 4;
                 return true;
+            }
             d = (d + i) % 4;
         }
+        if(move())
+            check();
 
+        return false;
+    }
+
+    static boolean move(){
+        if (d == 0){
+            if (room[r + 1][c] == 2) {
+                r += 1;
+                return true;
+            }
+        }
+        else if (d == 1){
+            if (room[r][c - 1] == 2){
+                c -= 1;
+                return true;
+            }
+        }
+        else if (d == 2){
+            if (room[r - 1][c] == 2){
+                r -= 1;
+                return true;
+            }
+        }
+        else if (d == 3){
+            if (room[r][c + 1] == 2){
+                c += 1;
+                return true;
+            }
+        }
         return false;
     }
 
     static boolean turn(){
         if (d == 0){
-            if (room[r][c+1] == 0 && c != m -1)
-            {
+            if (room[r][c + 1] == 0) {
                 c += 1;
                 return true;
             }
         }
         else if (d == 1){
-            if (room[r + 1][c] == 0 && r != n - 1){
+            if (room[r + 1][c] == 0){
                 r += 1;
                 return true;
             }
         }
         else if (d == 2){
-            if (room[r][c - 1] == 0 && c != 0){
+            if (room[r][c - 1] == 0){
                 c -= 1;
                 return true;
             }
         }
         else if (d == 3){
-            if (room[r - 1][c] == 0 && r != 0){
+            if (room[r - 1][c] == 0){
                 r -= 1;
                 return true;
             }
