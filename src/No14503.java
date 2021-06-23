@@ -4,7 +4,6 @@ public class No14503 {
 
     static int n, m, r, c, d;
     static int[][] room;
-    static int[] dx = {-1, 0, 1, 0}, dy = {0 , 1, 0, -1};
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -38,15 +37,16 @@ public class No14503 {
     }
 
     static boolean check(){
-        for (int i = 4; i > 0; i--){
+        for (int i = 0; i < 4; i++){
             if(turn()) {
-                d = (d + 1) % 4;
+                d = (4 + (d-1)) % 4;
                 return true;
             }
-            d = (d + 1) % 4;
+            d = (4 + (d-1)) % 4;
         }
         if(move())
-            check();
+            if(check())
+                return true;
 
         return false;
     }
