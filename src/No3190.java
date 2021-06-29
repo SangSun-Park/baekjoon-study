@@ -4,14 +4,6 @@ import java.util.Scanner;
 
 public class No3190 {
 
-    static class Apple{
-        int x, y;
-        public Apple(int x, int y) {
-            this.x = x;
-            this.y = y;
-        }
-    }
-
     static class Dire{
         int x;
         char c;
@@ -22,8 +14,9 @@ public class No3190 {
     }
 
     static int n, k, l;
-    static List<Apple> appleList; 
+    static int[][] map;
     static List<Dire> direList;
+    static int[] dx = {0, 1, 0, -1}, dy = {1, 0, -1, 0};
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -32,13 +25,12 @@ public class No3190 {
         int x, y, t;
         char c;
         String[] st;
-        appleList = new ArrayList<>();
 
         for(int i = 0; i < k; i++){
             st = scanner.nextLine().split(" ");
             x = Integer.parseInt(st[0]);
             y = Integer.parseInt(st[1]);
-            appleList.add(new Apple(x, y));
+            map[x][y] = 1;
         }
 
         l = Integer.parseInt(scanner.nextLine());
