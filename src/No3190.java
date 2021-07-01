@@ -66,7 +66,7 @@ public class No3190 {
 
             if(!Finish(nextX, nextY))
                 break;
-            
+
             if(map[nextX][nextY] == 1){
                 snake.add(new int[]{nextX, nextY});
                 map[nextX][nextY] = 0;
