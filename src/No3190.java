@@ -40,6 +40,7 @@ public class No3190 {
 
         direList = new ArrayList<>();
         snake = new ArrayList<>();
+        snake.add(new int[]{0,0});
         for(int i = 0; i < l; i++){
             st = scanner.nextLine().split(" ");
             t = Integer.parseInt(st[0]);
@@ -65,9 +66,10 @@ public class No3190 {
 
             if(!Finish(nextX, nextY))
                 break;
-
-            if(map[nextX][nextY] == 2){
+            
+            if(map[nextX][nextY] == 1){
                 snake.add(new int[]{nextX, nextY});
+                map[nextX][nextY] = 0;
             }else {
                 snake.add(new int[]{nextX,nextY});
                 snake.remove(0);
